@@ -26,7 +26,6 @@ app.get('/delete-user', function (req, res) {
 
 // http://localhost:3000/update-user?name=aaaaa&id=3
 app.get('/update-user', function (req, res) {
-  console.log(req.query)
   m.User.update(
     {name: req.query.name, email: req.query.email, phone: req.query.phone},
     {where: {id: req.query.id}}
