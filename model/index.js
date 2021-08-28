@@ -1,12 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
+const config = require('../config/config')
 
 const basename = path.basename(__filename);
 const db = {};
 
-const sequelize = new Sequelize('sql6432131', 'sql6432131', 'vHlMcfLdw7', {
-    host:'sql6.freemysqlhosting.net',
+const sequelize = new Sequelize(config.database, config.username, config.password, {
+    host: config.host,
     dialect: 'mysql',
     dialectOptions: {
         decimalNumbers: true,

@@ -3,6 +3,7 @@ const m = require('./model');
 const app = express();
 const port = 3000;
 
+// READ
 // http://localhost:3000/users
 app.get('/users', function (req, res) {
   m.User.findAll()
@@ -10,6 +11,7 @@ app.get('/users', function (req, res) {
     .catch(e => res.send(e));
 });
 
+// CREATE
 // http://localhost:3000/add-user?name=abu&phone=0125869350&email=abu@gmail.com.my
 app.get('/add-user', function (req, res) {
   m.User.create(req.query)
@@ -17,6 +19,7 @@ app.get('/add-user', function (req, res) {
     .catch(e => res.send(e));
 })
 
+// DELETE
 // http://localhost:3000/delete-user?id=3
 app.get('/delete-user', function (req, res) {
   m.User.destroy({where: {id: req.query.id}})
@@ -24,6 +27,7 @@ app.get('/delete-user', function (req, res) {
     .catch(e => res.send(e));
 })
 
+// UPDATE
 // http://localhost:3000/update-user?name=aaaaa&id=3
 app.get('/update-user', function (req, res) {
   m.User.update(
